@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         require: [true, "Please Provide Username"],
@@ -14,7 +14,6 @@ const userSchema = new mongoose({
     password: {
         type: String,
         require: [true, "Please Provide password"],
-        unique: true
     },
     isVerified: {
         type: Boolean,
@@ -30,6 +29,11 @@ const userSchema = new mongoose({
     verifyToken: String,
     verifyTokenExpiry: Date,
 })
-
-const User = mongoose.model.users || mongoose.model('users', userSchema);        //In mongo db everything stored in pural and lowercase form.
+// const User = mongoose.model('user', userSchema); //Giving Overwriting error        //In mongo db everything stored in pural and lowercase form.
+let User:any
+try {
+    User = mongoose.model('user');
+} catch (error) {
+    User = mongoose.model('user', userSchema);
+}
 export default User;

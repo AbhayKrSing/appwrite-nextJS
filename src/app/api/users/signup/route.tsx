@@ -1,7 +1,7 @@
 import connectdb from "@/dbConfig/dbConfig";
 import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
-const bcrypt = require("bcryptjs");
+import bcrypt from "bcryptjs";
 connectdb();
 
 export async function POST(req: NextRequest) {
@@ -9,9 +9,8 @@ export async function POST(req: NextRequest) {
   try {
     const reqbody = await req.json();
     const { username, email, password } = reqbody;
-    console.log(reqbody);
     //Check if User already exists
-    const user = await User.findone({ email });
+    const user = await User.findOne({ email });
     if (user) {
       return NextResponse.json({
         error: "User already exist",
@@ -26,7 +25,7 @@ export async function POST(req: NextRequest) {
     let newUser = new User({
       username,
       email,
-      password,
+      password: hash,
     });
     newUser = await newUser.save();
     console.log(newUser);
