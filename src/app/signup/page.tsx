@@ -24,12 +24,13 @@ const Signup = () => {
     }
     try {
       const res = await axios.post("/api/users/signup", credentials);
-      console.log(res.data);
+      console.log("SignUp Success", res.data);
       if (!res.data.error) {
         router.push("/login");
       }
+      toast.success("SignUp Success");
     } catch (error: any) {
-      toast(error.message);
+      toast.error("SignUp failed", error.message);
     }
   };
   return (
