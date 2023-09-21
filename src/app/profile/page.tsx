@@ -10,7 +10,7 @@ export default function Profilepage() {
     const fn = async () => {
       const { data } = await axios.get("/api/users/me");
       console.log(data._id);
-      setdata(data?.id);
+      setdata(data?._id);
     };
     fn();
   }, []);
