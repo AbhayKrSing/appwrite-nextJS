@@ -3,7 +3,7 @@ import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 connectdb();
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const reqbody = await req.json();
   const { token } = reqbody;
   console.log(token);

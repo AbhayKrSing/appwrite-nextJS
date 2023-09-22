@@ -69,9 +69,10 @@ const Loginpage = () => {
             className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:ring-4 focus:ring-red-500"
             id="password"
             type="password"
-            placeholder="******************"
+            placeholder="password"
             name="password"
             onChange={handlechange}
+            autoComplete="on"
           />
         </div>
         <div className="flex items-center justify-between">
