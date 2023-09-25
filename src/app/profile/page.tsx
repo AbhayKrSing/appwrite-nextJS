@@ -6,12 +6,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function Profilepage() {
   const [UserID, setUserID] = useState("");
+  const fn = async () => {
+    const { data } = await axios.get("/api/users/me");
+    console.log(data._id);
+    setUserID(data?._id);
+  };
   useEffect(() => {
-    const fn = async () => {
-      const { data } = await axios.get("/api/users/me");
-      console.log(data._id);
-      setUserID(data?._id);
-    };
     fn();
   }, []);
 
