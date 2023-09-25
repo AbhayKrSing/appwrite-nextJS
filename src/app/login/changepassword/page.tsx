@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const page = () => {
+const ChangePassword = () => {
   const passwordref = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const parseQueryString = (): any => {
@@ -79,4 +79,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ChangePassword;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const page = () => {
+const Forgotpassword = () => {
   const emailref = useRef<HTMLInputElement>(null);
   const submitform = async (e: any) => {
     e.preventDefault();
@@ -63,4 +63,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Forgotpassword;
