@@ -92,6 +92,7 @@ const Loginpage = () => {
       </form>
       <p className="text-center text-gray-400 text-xs">
         <Link href={"/"}>Home</Link>
+        <Link href={"/signup"}>Signup</Link>
       </p>
       <Toaster />
     </div>
