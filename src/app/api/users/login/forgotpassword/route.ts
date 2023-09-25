@@ -1,7 +1,9 @@
+import connectdb from "@/dbConfig/dbConfig";
 import { sendEmail } from "@/helpers/mailer";
 import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
+connectdb();
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
