@@ -8,8 +8,8 @@ const Logout = ({ children }: any) => {
   const router = useRouter();
   const logout = async () => {
     try {
-      await axios.get("/api/users/logout");
-      toast.success("Logout successfully");
+      const { data } = await axios.get("/api/users/logout");
+      toast.success(data.message);
       router.push("/login");
     } catch (error: any) {
       toast.error("Loginout failed");
